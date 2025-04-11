@@ -1,0 +1,32 @@
+name: Java Build and Docker Push
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2 # checks out the code when the action runs
+        
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1 # the java environment
+        with:   
+          java-version: 1.8 # specifies the version of java to be installed
+          
+      - name: Grant execute permission for Gradle Wrapper
+        run: chmod +x gradlew # runs the command giving permission to the gradlew file
+        
+      - name: Build Project with Gradle
+        run: ./gradlew build # compile and build the project
+        
+      - name: Build and Push Docker Image to Docker Hub
+        uses: mr-smithers-excellent/docker-build-push@v4
+        with: 
+          image: andrewn4675/my-image:latest
+          registry: docker.io # specifies that the image will be pushed to Docker Hub
+          username: ${{ secrets.DOCKER_USERNAME }} # To be set in the GitHub repository settings
+          password: ${{ secrets.DOCKER_PASSWORD }} # To be set in the GitHub repository settings
+
+# updating to ensure this works properly
