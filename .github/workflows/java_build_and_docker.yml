@@ -24,3 +24,5 @@ jobs:
           registry: docker.io # specifies that the image will be pushed to Docker Hub
           username: ${{ secrets.DOCKER_USERNAME }} # To be set in the GitHub repository settings
           password: ${{ secrets.DOCKER_PASSWORD }} # To be set in the GitHub repository settings
+
+# updating to ensure this works properly
