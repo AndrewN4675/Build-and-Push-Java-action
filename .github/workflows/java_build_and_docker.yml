@@ -16,10 +16,10 @@ jobs:
           java-version: 1.8 # specifies the version of java to be installed
           
       - name: Grant execute permission for Gradle Wrapper
-        run: chmod +x gradlew # runs the command giving permission to the gradlew file
+        run: chmod +x gradlew
         
       - name: Build Project with Gradle
-        run: ./gradlew build # compile and build the project
+        run: ./gradlew build
         
       - name: Build and Push Docker Image to Docker Hub
         uses: mr-smithers-excellent/docker-build-push@v4
