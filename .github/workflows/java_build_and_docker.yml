@@ -22,7 +22,7 @@ jobs:
       - name: Build and Push Docker Image to Docker Hub
         uses: mr-smithers-excellent/docker-build-push@v4
         with: 
-          image: andrewn4675/my-image:latest
+        image: andrewn4675/my-image:1.0
           registry: docker.io # specifies that the image will be pushed to Docker Hub
           username: ${{ secrets.DOCKER_USERNAME }} # To be set in the GitHub repository settings
           password: ${{ secrets.DOCKER_PASSWORD }} # To be set in the GitHub repository settings
