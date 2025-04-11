@@ -17,10 +17,8 @@ jobs:
           
       - name: Grant execute permission for Gradle Wrapper
         run: chmod +x gradlew
-        
       - name: Build Project with Gradle
         run: ./gradlew build
-        
       - name: Build and Push Docker Image to Docker Hub
         uses: mr-smithers-excellent/docker-build-push@v4
         with: 
@@ -28,6 +26,3 @@ jobs:
           registry: docker.io # specifies that the image will be pushed to Docker Hub
           username: ${{ secrets.DOCKER_USERNAME }} # To be set in the GitHub repository settings
           password: ${{ secrets.DOCKER_PASSWORD }} # To be set in the GitHub repository settings
-
-# updating to ensure this works properly
-
